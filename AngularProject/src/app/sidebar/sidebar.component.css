@@ -1,0 +1,94 @@
+:root {
+    font-size: 16px;
+    font-family: "Open Sans";
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #34343e;
+    --bg-seconday: #141418;
+  }
+  
+  body {
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #333;
+  }
+  
+  main {
+    margin-left: 5rem;
+    padding: 1rem;
+  }
+  
+  .navbar {
+    width: 5rem;
+    height: 100vh;
+    border-top-right-radius: 20px;
+    position: fixed;
+    background-color: #2c2c2c;
+    transition: width 200ms ease;
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .nav-item:first-child {
+    padding-top: 45px;
+  }
+  .nav-item {
+    padding-bottom: 10px;
+  
+    width: 100%;
+    align-items: center;
+  }
+  .nav-item:last-child {
+    margin-top: auto;
+  }
+  .navlink {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: #34343e;
+    text-decoration: none;
+    
+    
+  }
+  
+  .link-text {
+    display: none;
+    margin-left: 1rem;
+    color: #ececec;
+  }
+  .navlink svg {
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+  
+  .navbar:hover {
+    width: 16rem;
+  }
+  
+  .navbar:hover .link-text {
+    display: block;
+  }
+  
+  
+  .navlink:hover {
+    background: #141418;
+    color: #ececec;
+    width: 16rem;
+    transition: background 700ms ease;
+  }
+  .navlink:hover svg path {
+    fill: white;
+  }
+  
+  

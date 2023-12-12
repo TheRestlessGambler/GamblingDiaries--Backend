@@ -1,0 +1,72 @@
+<!-- your-component.component.html -->
+
+<app-sidebar></app-sidebar>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Symbol</th>
+        <th>P&L</th>
+        <th>
+          Observation
+          <a href="javascript:void(0);" class="plus" (click)="togglePopup()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="23"
+              width="23"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="#ffffff"
+                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+              />
+            </svg>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through entries array and dynamically create rows -->
+      <tr *ngFor="let entry of entries">
+        <td>{{ entry.date }}</td>
+        <td>{{ entry.time }}</td>
+        <td>{{ entry.symbol }}</td>
+        <td>{{ entry.pnl }}</td>
+        <td>{{ entry.observation }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="popup" *ngIf="popupVisible" (click)="togglePopup()">
+    <div class="popup-content" (click)="$event.stopPropagation()">
+      <form (submit)="onSubmit()">
+        <h3>Input</h3>
+        <div class="grid-container">
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date" [(ngModel)]="formData.date" />
+          </div>
+          <div class="form-group">
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time" [(ngModel)]="formData.time" />
+          </div>
+          <div class="form-group">
+            <label for="symbol">Symbol:</label>
+            <input type="text" id="symbol" name="symbol" [(ngModel)]="formData.symbol" />
+          </div>
+          <div class="form-group">
+            <label for="pnl">P&L:</label>
+            <input type="number" id="pnl" name="pnl" [(ngModel)]="formData.pnl" />
+          </div>
+          <div class="form-group">
+            <label for="observation">Observation:</label>
+            <input type="text" id="observation" name="observation" [(ngModel)]="formData.observation" />
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
